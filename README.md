@@ -15,8 +15,9 @@ GET /docs — Swagger
 Docker Desktop instalado e em execução
 
 2) Baixar o projeto
-git clone <URL_DO_SEU_REPOSITORIO>.git
-cd <PASTA_DO_REPOSITORIO>
+git clone https://github.com/RicardoSprocati/Weather-API.git
+
+cd weather-api
 
 3) Configurar variáveis (.env)
 Copy-Item .env.example .env
