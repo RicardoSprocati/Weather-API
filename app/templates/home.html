@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <title>Clima — Minimal</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/assets/styles.css">
+</head>
+
+<body>
+    <main>
+        {% if reading %}
+        <h1>{{ reading.city }}{% if reading.country %}, {{ reading.country }}{% endif %}</h1>
+
+        <p>Temperatura atual:
+            {% if reading.temp is not none %}{{ '%.2f'|format(reading.temp) }}°C{% else %}--{% endif %}
+        </p>
+        <p>Temperatura mínima:
+            {% if reading.temp_min is not none %}{{ '%.2f'|format(reading.temp_min) }}°C{% else %}--{% endif %}
+        </p>
+        <p>Temperatura máxima:
+            {% if reading.temp_max is not none %}{{ '%.2f'|format(reading.temp_max) }}°C{% else %}--{% endif %}
+        </p>
+
+        <hr>
+        <p>Link da nossa API para consumo: <a href="{{ api_url }}">{{ api_url }}</a></p>
+        <p>Documentação: <a href="/docs">/docs</a></p>
+        {% else %}
+        <h1>Nenhum dado ainda</h1>
+        <p>Use <a href="/docs">/docs</a> → POST <code>/weather/ingest</code> para ingerir.</p>
+        {% endif %}
+    </main>
+</body>
+
+</html>
